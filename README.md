@@ -33,7 +33,6 @@ Installed software:
 * php
 * phpMyAdmin
 * Xdebug with Webgrind
-* zsh with [oh-my-zsh](https://github.com/robbyrussell/oh-my-zsh)
 * git, subversion
 * mc, vim, screen, tmux, curl
 * [MailCatcher](http://mailcatcher.me/)
