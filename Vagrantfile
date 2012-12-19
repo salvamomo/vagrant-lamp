@@ -18,7 +18,8 @@ Vagrant::Config.run do |config|
 
     chef.json.merge!({
       "mysql" => {
-        "server_root_password" => "vagrant"
+        "server_root_password" => "vagrant",
+        "bind_address" => "0.0.0.0"
       }
     })
   end
