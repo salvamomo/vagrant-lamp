@@ -7,6 +7,7 @@ include_recipe "apache2::mod_ssl"
 include_recipe "mysql::server"
 include_recipe "php"
 include_recipe "apache2::mod_php5"
+include_recipe "drush"
 
 # Install packages
 %w{ debconf vim screen mc subversion curl tmux make g++ libsqlite3-dev }.each do |a_package|
