@@ -12,9 +12,11 @@ Install [vagrant](http://vagrantup.com/)
 
 Download and Install [VirtualBox](http://www.virtualbox.org/)
 
-Download a vagrant box (name of the box is supposed to be lucid32)
+Download a vagrant box (name of the box is supposed to be precise64, do make 
+sure your host is 64 bit as well, or change the 64 to 32 here and in the 
+Vagrantfile).
 
-    $ vagrant box add lucid32 http://files.vagrantup.com/lucid32.box
+    $ vagrant box add precise64 http://files.vagrantup.com/precise64.box
 
 Clone this repository
 
