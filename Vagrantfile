@@ -23,4 +23,6 @@ Vagrant::Config.run do |config|
       }
     })
   end
+  
+  config.vm.share_folder "v-root", "/vagrant", ".", :owner=> 'vagrant', :group=>'www-data', :extra => 'dmode=775,fmode=664'
 end
