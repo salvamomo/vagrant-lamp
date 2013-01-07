@@ -78,3 +78,10 @@ apache_module "php5" do
     filename "libphp5.so"
   end
 end
+
+template "/etc/php5/apache2/php.ini" do
+  source "mods/php5/php.ini.erb"
+  owner "root"
+  group "root"
+  mode "0644"
+end
