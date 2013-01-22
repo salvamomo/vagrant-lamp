@@ -23,6 +23,6 @@ when "debian", "ubuntu"
 (pear install drush/drush)
 (pear install Console_Table)
     EOH
-    not_if { File.exists?("/usr/share/drush/drush") }
+    not_if { File.exists?("/usr/bin/drush") }
   end
 end
