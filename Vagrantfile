@@ -15,6 +15,7 @@ Vagrant::Config.run do |config|
   config.vm.provision :chef_solo do |chef|
     chef.cookbooks_path = "cookbooks"
     chef.data_bags_path = "data_bags"
+    # chef.log_level = :debug
     chef.add_recipe "vagrant_main"
 
     chef.json.merge!({
