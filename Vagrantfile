@@ -25,6 +25,7 @@ Vagrant::Config.run do |config|
     })
   end
   
-  config.vm.share_folder "v-root", "/vagrant", ".", :owner=> 'vagrant', :group=>'www-data', :extra => 'dmode=775,fmode=664'
+  config.vm.share_folder "v-root", "/vagrant", ".", :extra => 'dmode=775,fmode=664', :nfs => true
+  # /var/log over NFS will not work, probably something to do with trying to mount something on a location that already exists.
   config.vm.share_folder "v-logs", "/var/log", "vagrant-logs", :owner=> 'vagrant', :group=>'www-data', :extra => 'dmode=775,fmode=664'
 end
