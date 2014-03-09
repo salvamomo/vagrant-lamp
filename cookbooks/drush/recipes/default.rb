@@ -1,5 +1,7 @@
+# 
 # Author:: Mark Sonnabaum <mark.sonnabaum@acquia.com>
-# Cookbook Name::  drush
+# Author:: Patrick Connolly <patrick@myplanetdigital.com>
+# Cookbook Name:: drush
 # Recipe:: default
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -15,14 +17,8 @@
 # limitations under the License.
 #
 
-case node[:platform]
-when "debian", "ubuntu"
-  bash "install-drush" do
-    code <<-EOH
-(pear channel-discover pear.drush.org)
-(pear install drush/drush)
-(pear install Console_Table)
-    EOH
-    not_if { File.exists?("/usr/bin/drush") }
-  end
-end
+include_recipe "php"
+# Upgrade PEAR if current version is < 1.9.1
+include_recipe "drush::upgrade_pear" if node['drush']['install_method'] == "pear"
+include_recipe "drush::install_console_table"
+include_recipe "drush::#{node['drush']['install_method']}"
