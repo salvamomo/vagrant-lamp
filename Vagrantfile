@@ -29,7 +29,7 @@ Vagrant.configure("2") do |config|
     })
   end
 
-  config.vm.synced_folder "./", "/vagrant/", id: "vagrant-root", :mount_options => ["dmode=775", "fmode=664"]
+  config.vm.synced_folder "./", "/vagrant/", id: "vagrant-root", :nfs => true
   # /var/log over NFS will not work, probably something to do with trying to mount something on a location that already exists.
   config.vm.synced_folder "vagrant-logs/", "/var/log/", id: "vagrant-logs", :owner=> 'vagrant', :group=>'www-data', :mount_options => ["dmode=775", "fmode=664"]
 end
