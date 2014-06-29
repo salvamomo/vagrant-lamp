@@ -51,4 +51,9 @@ Vagrant.configure("2") do |config|
     chef.add_recipe "vagrant_main::magento"
     chef.add_recipe "vagrant_main::nodejs"
   end
+
+  # Make sure apache is restarted even if the previous block does not run for
+  # boxes that have already been provisioned
+  config.vm.provision :shell, run: "always", inline: "sudo /etc/init.d/apache2 restart"
+
 end
