@@ -29,6 +29,17 @@ Vagrant.configure("2") do |config|
   # /var/log over NFS will not work, probably something to do with trying to mount something on a location that already exists.
   config.vm.synced_folder "vagrant-logs/", "/var/log/", id: "vagrant-logs", :owner=> 'vagrant', :group=>'www-data', :mount_options => ["dmode=775", "fmode=664"]
 
+  # Create a persistent storage for MySQL. See https://github.com/kusnier/vagrant-persistent-storage
+  if defined? VagrantPlugins::PersistentStorage
+    config.persistent_storage.enabled = true
+    config.persistent_storage.location = "vagrant-mysql.vdi"
+    config.persistent_storage.size = 5000
+    config.persistent_storage.mountname = 'mysql'
+    config.persistent_storage.filesystem = 'ext4'
+    config.persistent_storage.mountpoint = '/var/lib/mysql'
+    config.persistent_storage.volgroupname = 'vagrant'
+  end
+
   # Provider-specific configuration so you can fine-tune VirtualBox for Vagrant.
   # These expose provider-specific options.
   config.vm.provider :virtualbox do |vb|
