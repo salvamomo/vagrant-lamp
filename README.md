@@ -10,6 +10,10 @@ Download and install [VirtualBox](http://www.virtualbox.org/)
 
 Download and install [vagrant](http://vagrantup.com/)
 
+Optionally, install the [vagrant persistent storage plugin](https://github.com/kusnier/vagrant-persistent-storage)
+
+    $ vagrant plugin install vagrant-persistent-storage
+
 Download a vagrant box (name of the box is supposed to be precise32)
 
     $ vagrant box add precise32 http://files.vagrantup.com/precise32.box
@@ -27,7 +31,8 @@ What's inside:
 Installed software:
 
 * Apache
-* MySQL
+* MySQL (will use persistent storage if you installed the plugin above, so you
+  can safely destroy the box)
 * php
 * phpMyAdmin
 * Xdebug with Webgrind
